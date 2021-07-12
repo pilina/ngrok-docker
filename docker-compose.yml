@@ -6,6 +6,11 @@ services:
       - "8080:80"
 
   ngrok:
-    build: .
-    command: http web:8080
+    build:
+      context: .
+      args:
+        - ARCH=amd64/
+    depends_on:
+      - web
+    command: http web:80 --log stdout
 
