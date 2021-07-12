@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+
+  ngrok:
+    build: .
+    command: http web:8080
+
